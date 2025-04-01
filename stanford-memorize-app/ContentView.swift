@@ -7,25 +7,44 @@
 
 import SwiftUI
 
-struct ContentView: View { // "View" - protocol behaves like a view, behaves like something
+struct ContentView: View {
     var body: some View {
-        //var body is computed property that returns a view
-        //"some View"  computed the computed property and returns the check what view it will returns and uses that view as the type
-        VStack(alignment: .leading, spacing: 20 ,  content: {
-            //Image() - creating instance of a Struct
-            //"systemName:" is a named parameter
-            //if it is "named" it will look for an assets in the assets folder anmded globe
-            Image(systemName: "globe")
-                .imageScale(.large) //".imageScale(.large)" is a view modifier
-                .foregroundStyle(.green)
-            Text("Hello, world!").padding()//Text() - creating instance of a Struct
-            Text(testFunctionForGreating(name_of: "Momchil", on_this: Date()))
-        })
-        .font(.largeTitle )
+        HStack {
+            ZStack(content: {
+    //            Rectangle()//something that behave like a view also behaves like a shape
+                RoundedRectangle(cornerRadius: 12).foregroundColor(.white)
+                RoundedRectangle(cornerRadius: 12).strokeBorder(lineWidth: 2)
+                Text("👀").font(.largeTitle )
+    //            Text(testFunctionForGreating(name_of: "Momchil", on_this: Date()))
+            })
+            ZStack(content: {
+    //            Rectangle()//something that behave like a view also behaves like a shape
+                RoundedRectangle(cornerRadius: 12).foregroundColor(.white)
+                RoundedRectangle(cornerRadius: 12).strokeBorder(lineWidth: 2)
+                Text("👀").font(.largeTitle )
+    //            Text(testFunctionForGreating(name_of: "Momchil", on_this: Date()))
+            })
+            ZStack(content: {
+    //            Rectangle()//something that behave like a view also behaves like a shape
+                RoundedRectangle(cornerRadius: 12).foregroundColor(.white)
+                RoundedRectangle(cornerRadius: 12).strokeBorder(lineWidth: 2)
+                Text("👀").font(.largeTitle )
+    //            Text(testFunctionForGreating(name_of: "Momchil", on_this: Date()))
+            })
+            ZStack(content: {
+    //            Rectangle()//something that behave like a view also behaves like a shape
+                RoundedRectangle(cornerRadius: 12).foregroundColor(.white)
+                RoundedRectangle(cornerRadius: 12).strokeBorder(lineWidth: 2)
+                Text("👀").font(.largeTitle )
+    //            Text(testFunctionForGreating(name_of: "Momchil", on_this: Date()))
+            })
+        }
+        .foregroundColor(.orange)
+        .padding()
     }
 }
 
-//
+
 func testFunctionForGreating(name_of person:String?, on_this day: Date) ->String{
     return "Hello \(person ?? "world"), today is \(day)."
 }
@@ -35,6 +54,10 @@ struct MyTestView: View {
         Text("Hello, world!")
     }
 }
+
+
+
+
 
 
 #Preview {
