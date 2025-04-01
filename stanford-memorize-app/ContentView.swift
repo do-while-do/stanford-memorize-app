@@ -10,39 +10,33 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         HStack {
-            ZStack(content: {
-    //            Rectangle()//something that behave like a view also behaves like a shape
-                RoundedRectangle(cornerRadius: 12).foregroundColor(.white)
-                RoundedRectangle(cornerRadius: 12).strokeBorder(lineWidth: 2)
-                Text("👀").font(.largeTitle )
-    //            Text(testFunctionForGreating(name_of: "Momchil", on_this: Date()))
-            })
-            ZStack(content: {
-    //            Rectangle()//something that behave like a view also behaves like a shape
-                RoundedRectangle(cornerRadius: 12).foregroundColor(.white)
-                RoundedRectangle(cornerRadius: 12).strokeBorder(lineWidth: 2)
-                Text("👀").font(.largeTitle )
-    //            Text(testFunctionForGreating(name_of: "Momchil", on_this: Date()))
-            })
-            ZStack(content: {
-    //            Rectangle()//something that behave like a view also behaves like a shape
-                RoundedRectangle(cornerRadius: 12).foregroundColor(.white)
-                RoundedRectangle(cornerRadius: 12).strokeBorder(lineWidth: 2)
-                Text("👀").font(.largeTitle )
-    //            Text(testFunctionForGreating(name_of: "Momchil", on_this: Date()))
-            })
-            ZStack(content: {
-    //            Rectangle()//something that behave like a view also behaves like a shape
-                RoundedRectangle(cornerRadius: 12).foregroundColor(.white)
-                RoundedRectangle(cornerRadius: 12).strokeBorder(lineWidth: 2)
-                Text("👀").font(.largeTitle )
-    //            Text(testFunctionForGreating(name_of: "Momchil", on_this: Date()))
-            })
+            CardView(isFaceUp: true)
+            CardView(isFaceUp: false)
+            CardView(isFaceUp: true)
+            CardView(isFaceUp: true)
         }
         .foregroundColor(.orange)
         .padding()
     }
 }
+
+struct CardView: View {
+    var isFaceUp: Bool = false// every value in a struct must have a value when the struct is created
+    var body: some View {
+        ZStack(content: {
+            if isFaceUp {
+                RoundedRectangle(cornerRadius: 12).foregroundColor(.white)
+                RoundedRectangle(cornerRadius: 12).strokeBorder(lineWidth: 2)
+                Text("👀").font(.largeTitle )
+            } else {
+                RoundedRectangle(cornerRadius: 12)
+            }
+        })
+    }
+}
+
+
+
 
 
 func testFunctionForGreating(name_of person:String?, on_this day: Date) ->String{
