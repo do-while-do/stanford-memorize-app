@@ -7,14 +7,18 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    
+struct ContentView: View { // "View" - protocol behaves like a view, behaves like something
     var body: some View {
-        VStack(content: {
+        //var body is computed property that returns a view
+        //"some View"  computed the computed property and returns the check what view it will returns and uses that view as the type
+        VStack(alignment: .leading, spacing: 20 ,  content: {
+            //Image() - creating instance of a Struct
+            //"systemName:" is a named parameter
+            //if it is "named" it will look for an assets in the assets folder anmded globe
             Image(systemName: "globe")
-                .imageScale(.large)
+                .imageScale(.large) //".imageScale(.large)" is a view modifier
                 .foregroundStyle(.orange)
-            Text("Hello, world!")
+            Text("Hello, world!")//Text() - creating instance of a Struct
             Text(testFunctionForGreating(name_of: "Momchil", on_this: Date()))
         })
         .padding()
