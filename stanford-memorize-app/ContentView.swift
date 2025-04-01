@@ -17,11 +17,11 @@ struct ContentView: View { // "View" - protocol behaves like a view, behaves lik
             //if it is "named" it will look for an assets in the assets folder anmded globe
             Image(systemName: "globe")
                 .imageScale(.large) //".imageScale(.large)" is a view modifier
-                .foregroundStyle(.orange)
-            Text("Hello, world!")//Text() - creating instance of a Struct
+                .foregroundStyle(.green)
+            Text("Hello, world!").padding()//Text() - creating instance of a Struct
             Text(testFunctionForGreating(name_of: "Momchil", on_this: Date()))
         })
-        .padding()
+        .font(.largeTitle )
     }
 }
 
