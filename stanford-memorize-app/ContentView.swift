@@ -24,10 +24,10 @@ struct CardView: View {
     var isFaceUp: Bool = false// every value in a struct must have a value when the struct is created
     var body: some View {
         ZStack { //trailing closure syntax, zstack is a struc behaves like a view
-            var base: RoundedRectangle = RoundedRectangle(cornerRadius: 12)
+            let base: RoundedRectangle = RoundedRectangle(cornerRadius: 12)
             // we cannot do anythig else exept vars , ifs and lists
-            var x: Int = 1
-            x = x + 1
+//            var x: Int = 1
+//            x = x + 1
             if isFaceUp {
                 base.fill(.white)
                 base.strokeBorder(lineWidth: 2)
