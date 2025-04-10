@@ -21,8 +21,8 @@ struct ContentView: View {
 }
 
 struct CardView: View {
-    var isFaceUp = false
-    var body: some View {
+    @State var isFaceUp = false
+    var body: some View {// this is a pointer it satisfies that views cannot change but the pointer can change
         ZStack {
             let base = RoundedRectangle(cornerRadius: 12) //Type inferance
 
@@ -34,9 +34,10 @@ struct CardView: View {
                 base.fill()
             }
         }
-        .onTapGesture(count: 2, perform: {// count: 2 double tap
-            <#code#>
-        })
+        .onTapGesture { //this closure is not a viewBuilder its normal code and we can have operations in it
+//            print("Tapped") //this is a normal function
+            isFaceUp = !isFaceUp // views are immutable, so this will not work //Cannot assign to property: 'self' is immutable
+        }
     }
 }
 
