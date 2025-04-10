@@ -21,19 +21,17 @@ struct ContentView: View {
 }
 
 struct CardView: View {
-    var isFaceUp: Bool = false// every value in a struct must have a value when the struct is created
+    var isFaceUp: Bool = false
     var body: some View {
-        ZStack { //trailing closure syntax, zstack is a struc behaves like a view
-            let base: RoundedRectangle = RoundedRectangle(cornerRadius: 12)
-            // we cannot do anythig else exept vars , ifs and lists
-//            var x: Int = 1
-//            x = x + 1
+        ZStack {
+            let base = RoundedRectangle(cornerRadius: 12) //Type inferance
+
             if isFaceUp {
                 base.fill(.white)
                 base.strokeBorder(lineWidth: 2)
                 Text("👀").font(.largeTitle )
             } else {
-                base.fill() //default behavior is fill that is why we don't need to add fill
+                base.fill()
             }
         }
     }
