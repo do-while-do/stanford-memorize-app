@@ -21,7 +21,7 @@ struct ContentView: View {
 }
 
 struct CardView: View {
-    var isFaceUp: Bool = false
+    var isFaceUp = false
     var body: some View {
         ZStack {
             let base = RoundedRectangle(cornerRadius: 12) //Type inferance
@@ -34,6 +34,9 @@ struct CardView: View {
                 base.fill()
             }
         }
+        .onTapGesture(count: 2, perform: {// count: 2 double tap
+            <#code#>
+        })
     }
 }
 
