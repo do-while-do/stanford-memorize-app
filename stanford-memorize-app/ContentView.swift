@@ -8,20 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: Text {
-        VStack {
-            Text("Hello, world!")
-            Text("Hello, world!")
-
+var body: some View {
+        HStack {
+            CardView(isFaceUp: true)
+            CardView(isFaceUp: false)
+            CardView(isFaceUp: true)
+            CardView(isFaceUp: true)
         }
-        /*Text*/("Hello, world!")
-    }
+        .foregroundColor(.orange)
+        .padding()
 }
 
 struct CardView: View {
     var isFaceUp: Bool = false// every value in a struct must have a value when the struct is created
     var body: some View {
-        ZStack(content: {
+        ZStack { //trailing closure syntax, zstack is a struc behaves like a view
             if isFaceUp {
                 RoundedRectangle(cornerRadius: 12).foregroundColor(.white)
                 RoundedRectangle(cornerRadius: 12).strokeBorder(lineWidth: 2)
@@ -29,7 +30,7 @@ struct CardView: View {
             } else {
                 RoundedRectangle(cornerRadius: 12)
             }
-        })
+        }
     }
 }
 
