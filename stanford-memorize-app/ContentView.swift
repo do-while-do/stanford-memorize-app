@@ -8,18 +8,48 @@
 import SwiftUI
 
 struct ContentView: View {
-    let emojis: Array<String> = ["👀", "🥰", "😉", "❤️"]
-//  let emojis2: Array<String> = []
-//  let emojis3: [String] = []
+    let emojis: Array<String> = ["👀", "🥰", "😉", "❤️","🎶", "😁", "😎", "🥸" ,"😈" ,"😇" ,"🥶" ,"😶‍🌫️"]
+    @State var cardCount: Int = 4
     var body: some View {
-        HStack {
-            ForEach(emojis.indices, id: \.self) {
-                index in //argumenst to closures
-                CardView(content: emojis[index])
+        VStack {
+            HStack {
+                ForEach(0..<cardCount, id: \.self) {
+                    index in //arguments to closures
+                    CardView(content: emojis[index])
+                }
             }
+            .foregroundColor(.orange)
+            
+            HStack {
+                cardRemover
+                Spacer()
+                cardAdder
+            }
+            .imageScale(.large)
+            .font(.largeTitle)
         }
-        .foregroundColor(.orange)
         .padding()
+    }
+    
+    var cardRemover: some View {
+        Button(action: {//normal code, not e view
+            if cardCount > 1 {
+                cardCount = cardCount - 1
+            }
+            
+        }, label: { // this is a view builder
+            Image(systemName: "rectangle.stack.badge.minus.fill")
+        })
+    }
+    
+    var cardAdder: some View {
+        Button(action: {//normal code, not e view
+            if cardCount < emojis.count {
+                cardCount = cardCount + 1
+            }
+        }, label: { // this is a view builder
+            Image(systemName: "rectangle.stack.badge.plus.fill")
+        })
     }
 }
 
@@ -48,7 +78,7 @@ struct CardView: View {
 
 
 
-func testFunctionForGreating(name_of person:String?, on_this day: Date) ->String{
+func testFunctionForGreeting(name_of person:String?, on_this day: Date) ->String{
     return "Hello \(person ?? "world"), today is \(day)."
 }
 
