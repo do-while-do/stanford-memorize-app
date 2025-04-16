@@ -12,23 +12,36 @@ struct ContentView: View {
     @State var cardCount: Int = 4
     var body: some View {
         VStack {
-            HStack {
-                ForEach(0..<cardCount, id: \.self) {
-                    index in //arguments to closures
-                    CardView(content: emojis[index])
-                }
-            }
-            .foregroundColor(.orange)
-            
-            HStack {
-                cardRemover
-                Spacer()
-                cardAdder
-            }
-            .imageScale(.large)
-            .font(.largeTitle)
+            cards
+            cardCountAdjusters
         }
         .padding()
+    }
+    
+    var cards: some View {
+        // we do not have return before HStack because it is implicit return there is not need to place return there but we can
+        // it it implicit return because it is one line of code, HStack and a modifier
+        HStack {
+            ForEach(0..<cardCount, id: \.self) {
+                index in //arguments to closures
+                CardView(content: emojis[index])
+            }
+        }
+        .foregroundColor(.orange)
+    }
+    
+    var cardCountAdjusters: some View {
+        HStack {
+            cardRemover
+            Spacer()
+            cardAdder
+        }
+        .imageScale(.large)
+        .font(.largeTitle)
+    }
+    
+    func cardCountAdjuster(){
+        
     }
     
     var cardRemover: some View {
